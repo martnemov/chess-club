@@ -1,0 +1,22 @@
+.footer {
+  background: var(--color-footer-bg);
+  padding: 40px var(--container-padding);
+}
+
+.footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.footer__text {
+  font-size: var(--fs-body-sm);
+  opacity: 0.6;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px var(--container-padding);
+  }
+}

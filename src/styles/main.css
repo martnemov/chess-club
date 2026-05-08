@@ -1,0 +1,20 @@
+@import './fonts.css';
+@import './tokens.css';
+@import './reset.css';
+@import './base.css';
+@import './utilities.css';
+
+@import './layout/header.css';
+@import './layout/footer.css';
+
+@import './components/logo.css';
+@import './components/nav.css';
+@import './components/button.css';
+@import './components/ticker.css';
+@import './components/carousel.css';
+
+@import './sections/hero.css';
+@import './sections/lecture.css';
+@import './sections/tournament.css';
+@import './sections/stages.css';
+@import './sections/participants.css';

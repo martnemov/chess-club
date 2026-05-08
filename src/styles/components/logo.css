@@ -1,0 +1,28 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  z-index: 102;
+}
+
+.logo__mark {
+  display: flex;
+  gap: 2px;
+}
+
+.logo__horse {
+  width: 22px;
+  height: 24px;
+  fill: var(--color-logo-gray);
+}
+
+.logo__text {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16.651px;
+  line-height: 1.08;
+  color: var(--color-logo-gray);
+  text-transform: uppercase;
+  letter-spacing: 0;
+}

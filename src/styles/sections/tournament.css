@@ -1,0 +1,125 @@
+.tournament {
+  padding: 60px var(--container-padding) 100px;
+  background: var(--color-bg-white);
+  position: relative;
+}
+
+.tournament__inner {
+  display: grid;
+  grid-template-columns: 474px 1fr;
+  gap: 60px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.tournament__visual {
+  position: relative;
+  height: 527px;
+  background: #f0e7dc;
+  overflow: hidden;
+  border-radius: 4px;
+  background-image:
+    linear-gradient(rgba(245, 234, 218, 0.6), rgba(245, 234, 218, 0.6)),
+    url('https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=600&auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.tournament__visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(245, 184, 64, 0.4) 0%, transparent 60%);
+}
+
+.tournament__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tournament__heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h3);
+  line-height: 1.35;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.tournament__heading-accent {
+  color: var(--color-accent-red);
+  font-weight: 700;
+}
+
+.tournament__details {
+  width: 100%;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(49, 49, 49, 0.2);
+  gap: 24px;
+}
+
+.detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-row__label {
+  font-size: var(--fs-body-md);
+  opacity: 0.7;
+  line-height: 1.2;
+}
+
+.detail-row__value {
+  font-size: var(--fs-body-md);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.detail-row__value--strikethrough {
+  text-decoration: line-through;
+  color: var(--color-accent-red);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+.tournament__note {
+  font-size: var(--fs-body-md);
+  color: var(--color-accent-blue);
+  margin-top: 32px;
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .tournament__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .tournament__visual {
+    width: 100%;
+    max-width: 474px;
+    margin: 0 auto;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tournament {
+    padding: 40px var(--container-padding) 60px;
+  }
+
+  .tournament__visual {
+    height: 280px;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 0;
+  }
+}

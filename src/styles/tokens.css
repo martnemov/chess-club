@@ -1,0 +1,76 @@
+:root {
+  /* Colors */
+  --color-bg-main: #e9ded4;
+  --color-bg-white: #ffffff;
+  --color-text-primary: #313131;
+  --color-text-dark: #1f1f1f;
+  --color-accent-red: #f54932;
+  --color-accent-blue: #3057a2;
+  --color-logo-gray: #595653;
+  --color-card-dark: #424241;
+  --color-card-bg: #d9d9d9;
+  --color-footer-bg: #e9ded4;
+
+  /* Typography */
+  --font-display: 'Merriweather', serif;
+  --font-body: 'Golos Text', sans-serif;
+
+  --fs-hero: 60px;
+  --fs-h2: 54px;
+  --fs-h3: 36px;
+  --fs-body-lg: 22px;
+  --fs-body-md: 20px;
+  --fs-body: 18px;
+  --fs-body-sm: 16px;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 72px;
+
+  /* Layout */
+  --container-max: 1222px;
+  --container-padding: 72px;
+
+  /* Border radius */
+  --radius-pill: 66px;
+  --radius-circle: 60px;
+
+  /* Transitions */
+  --transition-base: 0.3s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --fs-hero: 48px;
+    --fs-h2: 42px;
+    --fs-h3: 28px;
+    --fs-body-lg: 18px;
+    --container-padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-hero: 36px;
+    --fs-h2: 32px;
+    --fs-h3: 22px;
+    --fs-body-lg: 14px;
+    --fs-body-md: 16px;
+    --fs-body: 16px;
+    --container-padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-hero: 32px;
+  }
+}
