@@ -2,27 +2,23 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: transparent;
-  border: 1px solid rgba(49, 49, 49, 0.3);
+  background: var(--color-text-dark);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    background var(--transition-base),
-    transform var(--transition-base);
+  cursor: pointer;
+  transition: background var(--transition-base);
 }
 
-.carousel-btn:hover {
-  background: var(--color-text-primary);
-  color: var(--color-bg-white);
+.carousel-btn:hover,
+.carousel-btn.is-hovered {
+  background: var(--color-accent-yellow);
 }
 
-.carousel-btn:hover svg path {
-  stroke: var(--color-bg-white);
-}
-
-.carousel-btn--prev svg {
-  transform: rotate(180deg);
+.carousel-btn:disabled {
+  background: var(--color-btn-disabled);
+  cursor: default;
 }
 
 .carousel-counter {
@@ -31,6 +27,8 @@
   gap: 1px;
   font-size: var(--fs-body-sm);
   color: var(--color-text-primary);
+  min-width: 36px;
+  justify-content: center;
 }
 
 .carousel-counter__current {

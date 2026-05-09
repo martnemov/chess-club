@@ -1,17 +1,17 @@
 :root {
-  /* Colors */
   --color-bg-main: #e9ded4;
   --color-bg-white: #ffffff;
   --color-text-primary: #313131;
   --color-text-dark: #1f1f1f;
   --color-accent-red: #f54932;
   --color-accent-blue: #3057a2;
+  --color-accent-yellow: #fbce51;
   --color-logo-gray: #595653;
   --color-card-dark: #424241;
   --color-card-bg: #d9d9d9;
   --color-footer-bg: #e9ded4;
+  --color-btn-disabled: #d6d6d6;
 
-  /* Typography */
   --font-display: 'Merriweather', serif;
   --font-body: 'Golos Text', sans-serif;
 
@@ -23,7 +23,6 @@
   --fs-body: 18px;
   --fs-body-sm: 16px;
 
-  /* Spacing */
   --space-xs: 8px;
   --space-sm: 12px;
   --space-md: 16px;
@@ -34,15 +33,12 @@
   --space-4xl: 64px;
   --space-5xl: 72px;
 
-  /* Layout */
   --container-max: 1222px;
   --container-padding: 72px;
 
-  /* Border radius */
   --radius-pill: 66px;
   --radius-circle: 60px;
 
-  /* Transitions */
   --transition-base: 0.3s ease;
   --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }

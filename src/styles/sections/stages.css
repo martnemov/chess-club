@@ -1,5 +1,5 @@
 .stages {
-  padding: 180px var(--container-padding);
+  padding: 180px var(--container-padding) 0;
   background: var(--color-bg-white);
 }
 
@@ -42,7 +42,7 @@
 .stages__track {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  gap: 20px;
   transition: transform var(--transition-smooth);
 }
 

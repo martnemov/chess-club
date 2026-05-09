@@ -1,4 +1,4 @@
-const REVEAL_SELECTOR = '.stage-card, .participant-card, .lecture__inner, .tournament__inner';
+const REVEAL_SELECTOR = '.stage-card, .lecture__inner, .tournament__inner';
 
 export function initScrollReveal() {
   if (!('IntersectionObserver' in window)) return;

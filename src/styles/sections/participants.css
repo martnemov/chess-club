@@ -1,5 +1,5 @@
 .participants {
-  padding: 80px var(--container-padding) 100px;
+  padding: 200px var(--container-padding) 140px;
   background: var(--color-bg-white);
 }
 
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 60px;
   gap: 32px;
 }
 
@@ -67,21 +67,21 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 1.2;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--color-text-primary);
 }
 
 .participant-card__role {
   font-size: var(--fs-body-md);
   opacity: 0.6;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .participant-card__btn {
   border: 1px solid var(--color-accent-blue);
   color: var(--color-accent-blue);
   background: transparent;
-  padding: 12px 32px;
+  padding: 6px 12px;
   border-radius: 62px;
   font-weight: 500;
   font-size: var(--fs-body-sm);

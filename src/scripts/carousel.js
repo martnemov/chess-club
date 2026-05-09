@@ -1,6 +1,6 @@
 const AUTO_DELAY_MS = 4000;
 const RESIZE_DEBOUNCE_MS = 150;
-const GAP_PX = 16;
+const GAP_PX = 20;
 
 export function initParticipantsCarousel() {
   const track = document.getElementById('participants-track');
@@ -11,41 +11,66 @@ export function initParticipantsCarousel() {
 
   if (!track || !prevBtn || !nextBtn) return;
 
-  const cards = Array.from(track.children);
-  const totalCards = cards.length;
+  const originalCards = Array.from(track.children);
+  const totalCards = originalCards.length;
+
+  originalCards.forEach((card) => {
+    track.appendChild(card.cloneNode(true));
+  });
+
+  const allCards = Array.from(track.children);
   let currentIndex = 0;
+  let isTransitioning = false;
   let autoTimer = null;
 
   totalEl.textContent = totalCards;
+  currentEl.textContent = 1;
 
-  function getVisibleCount() {
-    if (window.innerWidth <= 480) return 1;
-    if (window.innerWidth <= 1024) return 2;
-    return 3;
+  function getCardWidth() {
+    return allCards[0].offsetWidth;
   }
 
-  function getMaxIndex() {
-    return Math.max(0, totalCards - getVisibleCount());
-  }
-
-  function updateCarousel() {
-    const cardWidth = cards[0].offsetWidth;
-    const offset = currentIndex * (cardWidth + GAP_PX);
+  function setOffset(index, animated) {
+    const offset = index * (getCardWidth() + GAP_PX);
+    track.style.transition = animated ? 'transform 0.4s ease' : 'none';
     track.style.transform = `translateX(-${offset}px)`;
-    currentEl.textContent = currentIndex + 1;
+  }
+
+  function updateCounter() {
+    currentEl.textContent = String((currentIndex % totalCards) + 1);
   }
 
   function nextSlide() {
-    const max = getMaxIndex();
-    currentIndex = currentIndex >= max ? 0 : currentIndex + 1;
-    updateCarousel();
+    if (isTransitioning) return;
+    currentIndex++;
+    if (currentIndex >= totalCards) {
+      currentIndex = 0;
+      setOffset(0, false);
+      updateCounter();
+      return;
+    }
+    isTransitioning = true;
+    setOffset(currentIndex, true);
+    updateCounter();
   }
 
   function prevSlide() {
-    const max = getMaxIndex();
-    currentIndex = currentIndex <= 0 ? max : currentIndex - 1;
-    updateCarousel();
+    if (isTransitioning) return;
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = totalCards - 1;
+      setOffset(totalCards - 1, false);
+      updateCounter();
+      return;
+    }
+    isTransitioning = true;
+    setOffset(currentIndex, true);
+    updateCounter();
   }
+
+  track.addEventListener('transitionend', () => {
+    isTransitioning = false;
+  });
 
   function stopAuto() {
     if (autoTimer) {
@@ -58,6 +83,11 @@ export function initParticipantsCarousel() {
     stopAuto();
     autoTimer = setInterval(nextSlide, AUTO_DELAY_MS);
   }
+
+  [prevBtn, nextBtn].forEach((btn) => {
+    btn.addEventListener('mouseenter', () => btn.classList.add('is-hovered'));
+    btn.addEventListener('mouseleave', () => btn.classList.remove('is-hovered'));
+  });
 
   nextBtn.addEventListener('click', () => {
     nextSlide();
@@ -82,11 +112,10 @@ export function initParticipantsCarousel() {
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      currentIndex = Math.min(currentIndex, getMaxIndex());
-      updateCarousel();
+      setOffset(currentIndex, false);
     }, RESIZE_DEBOUNCE_MS);
   });
 
-  updateCarousel();
+  setOffset(0, false);
   startAuto();
 }
