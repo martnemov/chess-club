@@ -1,5 +1,5 @@
 .stages {
-  padding: 80px var(--container-padding);
+  padding: 180px var(--container-padding);
   background: var(--color-bg-white);
 }
 
@@ -9,44 +9,52 @@
 }
 
 .stages__header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: end;
-  margin-bottom: 48px;
+  margin-bottom: 54px;
+}
+
+.stages__title-line {
+  display: block;
+}
+
+.stages__title-line--bottom {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
 }
 
 .stages__subtitle {
   font-size: var(--fs-body-md);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 400;
+  text-transform: none;
   color: var(--color-accent-blue);
   line-height: 1.2;
   max-width: 280px;
-  justify-self: end;
+  flex-shrink: 0;
+  padding-bottom: 10px;
 }
 
 .stages__carousel {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .stages__track {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
   transition: transform var(--transition-smooth);
 }
 
 .stage-card {
-  background-color: #d2c4b3;
-  background-image: linear-gradient(135deg, rgba(210, 196, 179, 0.95), rgba(184, 168, 148, 0.9));
+  grid-column: span 2;
+  background-image: url('src/assets/images/cooper-union-stamp-paper.png');
   padding: 20px;
   position: relative;
   min-height: 112px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  border-radius: 2px;
-  box-shadow: 5px 4px 12.7px rgba(0, 0, 0, 0.15);
   transition: transform var(--transition-base);
 }
 
@@ -56,11 +64,15 @@
 
 .stage-card--tall {
   min-height: 244px;
+  grid-row: span 2;
 }
 
 .stage-card--wide-tall {
-  grid-column: span 2;
   min-height: 136px;
+}
+
+.stage-card--airplane {
+  grid-column: span 4;
 }
 
 .stage-card__number {
@@ -86,21 +98,16 @@
 
 .stage-card--airplane {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding-right: 325px;
 }
 
-.stage-card--airplane::after {
-  content: '';
+.stage-card__plane {
   position: absolute;
-  right: -40px;
-  bottom: -10px;
-  width: 400px;
-  height: 220px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'><g fill='none' stroke='%23313131' stroke-width='1.2' opacity='0.6'><path d='M50 130 L350 130 M80 100 L320 100' /><path d='M150 80 Q200 60 250 80 L260 130 L140 130 Z' fill='%23a08866' opacity='0.5'/><circle cx='200' cy='130' r='8' fill='%23313131'/><path d='M180 130 L220 130 L210 145 L190 145 Z'/><path d='M70 130 Q200 50 330 130' stroke-dasharray='2 4'/></g></svg>");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.7;
+  right: -65px;
+  bottom: -8px;
   pointer-events: none;
+  z-index: 10;
 }
 
 @media (max-width: 1024px) {
