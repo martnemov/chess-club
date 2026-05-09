@@ -1,5 +1,5 @@
 .lecture {
-  padding: 80px var(--container-padding);
+  padding: 80px var(--container-padding) 0;
   background: var(--color-bg-white);
 }
 
@@ -7,13 +7,13 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 32px;
-  align-items: start;
+  align-items: center;
   max-width: var(--container-max);
   margin: 0 auto;
 }
 
 .lecture__title {
-  font-family: var(--font-display);
+  font-family: var(--font-display), serif;
   font-weight: 400;
   font-size: var(--fs-h3);
   line-height: 1.35;
@@ -24,13 +24,6 @@
 .lecture__title-accent {
   color: var(--color-accent-red);
   font-weight: 700;
-}
-
-.lecture__image {
-  width: 394px;
-  height: 250px;
-  object-fit: cover;
-  filter: sepia(0.3) contrast(1.05);
 }
 
 @media (max-width: 1024px) {
