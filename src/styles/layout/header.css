@@ -8,6 +8,10 @@
   display: flex;
   align-items: flex-start;
   padding: 26px var(--container-padding) 0;
+
+  @media (min-width: 1440px) {
+    padding: 26px 342px 0;
+  }
 }
 
 .header__inner {
