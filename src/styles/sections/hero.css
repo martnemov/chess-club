@@ -28,16 +28,6 @@
   }
 }
 
-.hero__pawn {
-  position: absolute;
-  width: 83px;
-  height: 122px;
-  right: 45px;
-  bottom: 18px;
-  z-index: 2;
-  pointer-events: none;
-}
-
 .hero__inner {
   position: relative;
   height: 100%;

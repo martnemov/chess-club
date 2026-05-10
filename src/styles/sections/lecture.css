@@ -32,12 +32,6 @@
     gap: 32px;
   }
 
-  .lecture__image {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    aspect-ratio: 394 / 250;
-  }
 }
 
 @media (max-width: 768px) {

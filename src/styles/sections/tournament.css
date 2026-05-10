@@ -13,11 +13,6 @@
   align-items: start;
 }
 
-.tournament__image {
-  object-fit: cover;
-  position: relative;
-}
-
 .tournament__content {
   display: flex;
   flex-direction: column;

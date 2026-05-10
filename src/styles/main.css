@@ -7,7 +7,6 @@
 @import './layout/header.css';
 @import './layout/footer.css';
 
-@import './components/nav.css';
 @import './components/button.css';
 @import './components/ticker.css';
 @import './components/carousel.css';
