@@ -14,20 +14,24 @@ export function initParticipantsCarousel() {
   const originalCards = Array.from(track.children);
   const totalCards = originalCards.length;
 
+  // Prepend clone of card 1 at index 0 — used for backward wrap animation (6→1)
+  track.insertBefore(originalCards[0].cloneNode(true), track.firstChild);
+
+  // Append clones of all cards — fill visible slots at right boundary
   originalCards.forEach((card) => {
     track.appendChild(card.cloneNode(true));
   });
 
-  const allCards = Array.from(track.children);
-  let currentIndex = 0;
+  // Index layout: 0=clone(card1)  1..totalCards=originals  totalCards+1..=appended clones
+  let currentIndex = 1;
   let isTransitioning = false;
   let autoTimer = null;
 
-  totalEl.textContent = totalCards;
-  currentEl.textContent = 1;
+  totalEl.textContent = String(totalCards);
+  currentEl.textContent = '1';
 
   function getCardWidth() {
-    return allCards[0].offsetWidth;
+    return track.children[0].offsetWidth;
   }
 
   function setOffset(index, animated) {
@@ -37,39 +41,52 @@ export function initParticipantsCarousel() {
   }
 
   function updateCounter() {
-    currentEl.textContent = String((currentIndex % totalCards) + 1);
+    currentEl.textContent = String(currentIndex === 0 ? 1 : currentIndex);
   }
 
   function nextSlide() {
     if (isTransitioning) return;
-    currentIndex++;
-    if (currentIndex >= totalCards) {
-      currentIndex = 0;
-      setOffset(0, false);
-      updateCounter();
-      return;
-    }
     isTransitioning = true;
+
+    if (currentIndex === totalCards) {
+      // Last card: slide backward (right) to prepended clone of card 1
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
     setOffset(currentIndex, true);
     updateCounter();
   }
 
   function prevSlide() {
     if (isTransitioning) return;
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = totalCards - 1;
-      setOffset(totalCards - 1, false);
+
+    if (currentIndex <= 1) {
+      // First card: instant jump to last card
+      currentIndex = totalCards;
+      setOffset(currentIndex, false);
       updateCounter();
       return;
     }
     isTransitioning = true;
+    currentIndex--;
     setOffset(currentIndex, true);
     updateCounter();
   }
 
-  track.addEventListener('transitionend', () => {
-    isTransitioning = false;
+  track.addEventListener('transitionend', (e) => {
+    if (e.target !== track || e.propertyName !== 'transform') return;
+    if (currentIndex === 0) {
+      // After backward loop animation: snap invisibly to real card 1
+      currentIndex = 1;
+      setOffset(1, false);
+      // rAF ensures transition:none is committed before re-enabling clicks
+      requestAnimationFrame(() => {
+        isTransitioning = false;
+      });
+    } else {
+      isTransitioning = false;
+    }
   });
 
   function stopAuto() {
@@ -116,6 +133,6 @@ export function initParticipantsCarousel() {
     }, RESIZE_DEBOUNCE_MS);
   });
 
-  setOffset(0, false);
+  setOffset(1, false);
   startAuto();
 }
