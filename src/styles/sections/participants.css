@@ -98,6 +98,10 @@
 }
 
 @media (max-width: 1024px) {
+  .participants {
+    padding: 80px var(--container-padding) 80px;
+  }
+
   .participant-card__photo {
     width: 260px;
     height: 260px;

@@ -31,11 +31,42 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
-
 }
 
 @media (max-width: 768px) {
   .lecture {
-    padding: 48px var(--container-padding);
+    padding: 35px var(--container-padding);
+  }
+
+  .lecture__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .lecture__title {
+    display: contents;
+  }
+
+  .lecture__title-part1 {
+    order: 1;
+    font-family: var(--font-display), serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .lecture__inner img {
+    order: 2;
+  }
+
+  .lecture__title-part2 {
+    order: 3;
+    font-family: var(--font-display), serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.35;
+    text-transform: uppercase;
   }
 }

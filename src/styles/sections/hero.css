@@ -3,6 +3,7 @@
   height: 700px;
   background: var(--color-bg-main);
   overflow: hidden;
+  isolation: isolate;
 }
 
 .hero__bg {
@@ -15,7 +16,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: url("../../assets/images/bg-chess.png");
+  background-image: url('../../assets/images/bg-chess.png');
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -24,7 +25,7 @@
 
 @media (min-width: 1440px) {
   .hero__chess {
-    background-image: url("../../assets/images/bg-chess-1920.png");
+    background-image: url('../../assets/images/bg-chess-1920.png');
   }
 }
 
@@ -63,7 +64,6 @@
   text-align: right;
 }
 
-
 .hero__title-row--center {
   text-align: center;
 }
@@ -97,37 +97,57 @@
 
 @media (max-width: 1024px) {
   .hero {
-    height: auto;
-    min-height: 600px;
-    padding-bottom: 60px;
+    min-height: 782px;
   }
 
   .hero__inner {
     padding: 100px var(--container-padding) 0;
   }
-
 }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: 560px;
-    padding-bottom: 40px;
+  .hero__inner {
+    padding-top: 88px;
   }
 
-  .hero__inner {
-    padding-top: 80px;
+  .hero__content {
+    max-width: 100%;
   }
 
   .hero__title {
-    margin-bottom: 32px;
+    font-size: 36px;
+    margin-bottom: 16px;
   }
 
   .hero__title-row--right {
+    text-align: center;
+  }
+
+  .hero__description {
+    font-size: 18px;
     text-align: left;
+    margin: 32px 0 24px;
   }
 
   .hero__buttons {
     flex-direction: column;
+    gap: 12px;
     width: 100%;
+  }
+
+  .hero__chess {
+    background-image: url('../../assets/images/bg-chess-mobile.png');
+    background-position: center center;
+    mix-blend-mode: normal;
+  }
+
+  /* На мобиле текст кнопки в одну строку */
+  .hero__buttons br {
+    display: none;
+  }
+
+  /* Вторичная кнопка — белый фон чтобы выделяться на бежевом фоне hero */
+  .hero__buttons .btn--secondary {
+    background: var(--color-bg-white);
   }
 }

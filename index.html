@@ -11,7 +11,10 @@
     <header class="header">
       <div class="header__inner">
         <a href="#" aria-label="Клуб четырех коней">
-          <img src="/src/assets/images/logo-chess.png" alt="Клуб четырех коней" />
+          <picture>
+            <source srcset="/src/assets/images/logo-chess-mobile.png" media="(max-width: 768px)" />
+            <img src="/src/assets/images/logo-chess.png" alt="Клуб четырех коней" />
+          </picture>
         </a>
       </div>
     </header>
@@ -36,7 +39,10 @@
 
           <div class="hero__buttons">
             <a href="#lecture" class="btn btn--primary">Поддержать шахматную мысль</a>
-            <a href="#participants" class="btn btn--secondary">Подробнее<br />о турнире</a>
+            <a href="#participants" class="btn btn--secondary"
+              >Подробнее<br />
+              о турнире</a
+            >
           </div>
         </div>
       </div>
@@ -57,8 +63,13 @@
       <section class="lecture" id="lecture">
         <div class="lecture__inner">
           <h2 class="lecture__title">
-            Чтобы поддержать Международный васюкинский турнир посетите лекцию на тему:
-            <span class="lecture__title-accent">«Плодотворная дебютная идея»</span>
+            <span class="lecture__title-part1"
+              >Чтобы поддержать Международный васюкинский турнир</span
+            >
+            <span class="lecture__title-part2">
+              посетите лекцию на тему:
+              <span class="lecture__title-accent">«Плодотворная дебютная идея»</span>
+            </span>
           </h2>
           <img
             src="/src/assets/images/lecture.png"
@@ -70,14 +81,28 @@
 
       <section class="tournament" id="tournament">
         <div class="tournament__inner">
-          <img src="/src/assets/images/chess-player.png" alt="Шахматист и купюра" loading="lazy" />
+          <picture>
+            <source
+              srcset="/src/assets/images/chess-player-mobile.png"
+              media="(max-width: 768px)"
+            />
+            <source
+              srcset="/src/assets/images/chess-player-desktop.png"
+              media="(min-width: 769px)"
+            />
+            <img
+              src="/src/assets/images/chess-player-desktop.png"
+              alt="Шахматист и купюра"
+              loading="lazy"
+            />
+          </picture>
           <div class="tournament__content">
             <h3 class="tournament__heading">
               и Сеанс
               <span class="tournament__heading-accent"
-                >одновременной игры<br />в шахматы на 160 досках</span
+                >одновременной игры в шахматы на 160 досках</span
               >
-              гроссмейстера О. Бендера
+              гроссмейстера О.&nbsp;Бендера
             </h3>
 
             <dl class="tournament__details">
@@ -126,65 +151,126 @@
           </div>
 
           <div class="stages__carousel">
+            <div class="stages__viewport">
             <div class="stages__track" id="stages-track">
-              <article class="stage-card">
-                <span class="stage-card__number" aria-hidden="true">1</span>
-                <p class="stage-card__text">
-                  Строительство железнодорожной магистрали Москва-Васюки
-                </p>
-              </article>
 
-              <article class="stage-card">
-                <span class="stage-card__number" aria-hidden="true">2</span>
-                <p class="stage-card__text">
-                  Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
-                </p>
-              </article>
-
-              <article class="stage-card stage-card--tall">
-                <span class="stage-card__number" aria-hidden="true">3</span>
-                <p class="stage-card__text">
-                  Поднятие сельского хозяйства в радиусе<br />на тысячу километров: производство
-                  овощей, фруктов, икры, шоколадных конфет
-                </p>
-              </article>
-
-              <article class="stage-card">
-                <span class="stage-card__number" aria-hidden="true">4</span>
-                <p class="stage-card__text">
-                  Строительство дворца<br />
-                  для турнира
-                </p>
-              </article>
-
-              <article class="stage-card">
-                <span class="stage-card__number" aria-hidden="true">5</span>
-                <p class="stage-card__text">
-                  Размещение гаражей<br />для гостевого<br />автотранспорта
-                </p>
-              </article>
-
-              <article class="stage-card stage-card--wide-tall">
-                <span class="stage-card__number" aria-hidden="true">6</span>
-                <p class="stage-card__text">
-                  Постройка сверхмощной радиостанции для передачи всему миру сенсационных
-                  результатов
-                </p>
-              </article>
-
-              <article class="stage-card stage-card--wide-tall stage-card--airplane">
-                <span class="stage-card__number" aria-hidden="true">7</span>
-                <p class="stage-card__text">
-                  Создание&nbsp;аэропорта&nbsp;«Большие&nbsp;Васюки» с регулярным отправлением
-                  почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
-                </p>
+              <!-- Слайд 1: самолёт + карточки 1 и 2 -->
+              <div class="stages__slide">
                 <img
-                  src="/src/assets/images/plane.png"
+                  class="stages__plane-mobile"
+                  src="/src/assets/images/plane-mobile.png"
                   alt=""
-                  class="stage-card__plane"
                   aria-hidden="true"
                 />
-              </article>
+                <div class="stages__slide-cards">
+                  <article class="stage-card">
+                    <span class="stage-card__number" aria-hidden="true">1</span>
+                    <p class="stage-card__text">
+                      Строительство железнодорожной магистрали Москва-Васюки
+                    </p>
+                  </article>
+
+                  <article class="stage-card">
+                    <span class="stage-card__number" aria-hidden="true">2</span>
+                    <p class="stage-card__text">
+                      Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <!-- Слайд 2: карточка 3 -->
+              <div class="stages__slide">
+                <article class="stage-card stage-card--tall">
+                  <span class="stage-card__number" aria-hidden="true">3</span>
+                  <p class="stage-card__text">
+                    Поднятие сельского хозяйства в радиусе<br />
+                    на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
+                  </p>
+                </article>
+              </div>
+
+              <!-- Слайд 3: карточки 4 и 5 -->
+              <div class="stages__slide">
+                <div class="stages__slide-cards">
+                  <article class="stage-card">
+                    <span class="stage-card__number" aria-hidden="true">4</span>
+                    <p class="stage-card__text">
+                      Строительство дворца<br />
+                      для турнира
+                    </p>
+                  </article>
+
+                  <article class="stage-card">
+                    <span class="stage-card__number" aria-hidden="true">5</span>
+                    <p class="stage-card__text">
+                      Размещение гаражей<br />
+                      для гостевого<br />
+                      автотранспорта
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <!-- Слайд 4: карточка 6 -->
+              <div class="stages__slide">
+                <article class="stage-card stage-card--wide-tall">
+                  <span class="stage-card__number" aria-hidden="true">6</span>
+                  <p class="stage-card__text">
+                    Постройка сверхмощной радиостанции для передачи всему миру сенсационных
+                    результатов
+                  </p>
+                </article>
+              </div>
+
+              <!-- Слайд 5: карточка 7 -->
+              <div class="stages__slide">
+                <article class="stage-card stage-card--wide-tall stage-card--airplane">
+                  <span class="stage-card__number" aria-hidden="true">7</span>
+                  <p class="stage-card__text">
+                    Создание аэропорта «Большие Васюки» с регулярным отправлением
+                    почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
+                  </p>
+                  <img
+                    src="/src/assets/images/plane.png"
+                    alt=""
+                    class="stage-card__plane"
+                    aria-hidden="true"
+                  />
+                </article>
+              </div>
+
+            </div>
+
+            </div><!-- /stages__viewport -->
+
+            <!-- Мобильные контролы карусели -->
+            <div class="stages__controls" id="stages-controls">
+              <button
+                class="carousel-btn carousel-btn--prev"
+                type="button"
+                aria-label="Предыдущий этап"
+                id="stages-prev"
+              >
+                <img src="/src/assets/svg/btn-left.svg" alt="" aria-hidden="true" />
+              </button>
+
+              <div class="stages__dots" id="stages-dots">
+                <button class="stages__dot stages__dot--active" type="button" aria-label="Этап 1"></button>
+                <button class="stages__dot" type="button" aria-label="Этап 2"></button>
+                <button class="stages__dot" type="button" aria-label="Этап 3"></button>
+                <button class="stages__dot" type="button" aria-label="Этап 4"></button>
+                <button class="stages__dot" type="button" aria-label="Этап 5"></button>
+              </div>
+
+              <button
+                class="carousel-btn carousel-btn--next"
+                type="button"
+                aria-label="Следующий этап"
+                id="stages-next"
+              >
+                <img src="/src/assets/svg/btn-right.svg" alt="" aria-hidden="true" />
+              </button>
             </div>
           </div>
         </div>

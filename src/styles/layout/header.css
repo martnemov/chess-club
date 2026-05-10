@@ -24,6 +24,6 @@
 @media (max-width: 768px) {
   .header {
     height: 56px;
-    padding: 0 var(--container-padding);
+    padding: 18px var(--container-padding);
   }
 }
