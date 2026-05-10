@@ -237,6 +237,16 @@
     flex: none;
     overflow: hidden;
     height: 300px;
+    padding-top: 62px;
+  }
+
+  .stages__slide-cards .stage-card:first-child {
+    padding-top: 55px;
+    padding-bottom: 0;
+  }
+
+  .stages__slide-cards .stage-card:last-child {
+    padding-top: 0;
   }
 
   /* Самолёт — только в первом слайде, наезжает на карточку */
