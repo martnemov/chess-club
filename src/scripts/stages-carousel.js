@@ -21,19 +21,23 @@ export function initStagesCarousel() {
     return track.parentElement.offsetWidth;
   }
 
+  function updateButtons() {
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
   function goTo(index, animated = true) {
     if (!isMobile()) {
       track.style.transform = '';
       return;
     }
     if (isTransitioning && animated) return;
-    current = ((index % total) + total) % total;
+    current = Math.max(0, Math.min(index, total - 1));
     if (animated) isTransitioning = true;
     track.style.transition = animated ? 'transform 0.4s ease' : 'none';
     track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('stages__dot--active', i === current);
-    });
+    dots.forEach((dot, i) => dot.classList.toggle('stages__dot--active', i === current));
+    updateButtons();
   }
 
   track.addEventListener('transitionend', (e) => {

@@ -1,6 +1,5 @@
 const AUTO_DELAY_MS = 4000;
 const RESIZE_DEBOUNCE_MS = 150;
-const GAP_PX = 20;
 
 export function initParticipantsCarousel() {
   const track = document.getElementById('participants-track');
@@ -34,8 +33,12 @@ export function initParticipantsCarousel() {
     return track.children[0].offsetWidth;
   }
 
+  function getGap() {
+    return parseFloat(getComputedStyle(track).gap) || 0;
+  }
+
   function setOffset(index, animated) {
-    const offset = index * (getCardWidth() + GAP_PX);
+    const offset = index * (getCardWidth() + getGap());
     track.style.transition = animated ? 'transform 0.4s ease' : 'none';
     track.style.transform = `translateX(-${offset}px)`;
   }

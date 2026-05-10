@@ -17,6 +17,6 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 32px var(--container-padding);
+    padding: 38px var(--container-padding);
   }
 }
