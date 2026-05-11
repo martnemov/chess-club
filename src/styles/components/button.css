@@ -30,6 +30,7 @@
 .btn--secondary {
   background: transparent;
   color: var(--color-text-dark);
+  border: 2px solid var(--color-text-dark);
 }
 
 @media (max-width: 768px) {

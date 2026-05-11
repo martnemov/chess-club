@@ -1,5 +1,5 @@
 .stages {
-  padding: 200px var(--container-padding) 0;
+  padding: 188px var(--container-padding) 0;
   background: var(--color-bg-white);
 }
 
@@ -142,7 +142,7 @@
 .stage-card__plane {
   position: absolute;
   right: -65px;
-  bottom: -8px;
+  bottom: -1px;
   pointer-events: none;
   z-index: 10;
 }
