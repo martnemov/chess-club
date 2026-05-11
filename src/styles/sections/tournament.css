@@ -13,6 +13,20 @@
   align-items: start;
 }
 
+.tournament__inner > picture {
+  display: block;
+  margin-top: -27px;
+  margin-left: calc(-1 * 27px);
+  margin-right: -44px;
+}
+
+.tournament__inner > picture img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+
 .tournament__content {
   display: flex;
   flex-direction: column;
@@ -96,10 +110,16 @@
     padding: 40px var(--container-padding) 60px;
   }
 
-  .tournament__inner > img {
+  .tournament__inner > picture {
     display: block;
-    width: 100%;
+    margin: -40px calc(-1 * var(--container-padding)) 0;
+  }
+
+  .tournament__inner > picture img {
+    display: block;
+    width: auto;
     height: auto;
+    max-width: none;
   }
 
   .tournament__heading {
