@@ -39,3 +39,10 @@
 .carousel-counter__total {
   opacity: 0.6;
 }
+
+@media (max-width: 1024px) {
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
