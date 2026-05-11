@@ -85,7 +85,7 @@
 
 .stage-card {
   grid-column: span 2;
-  background-image: url('src/assets/images/cooper-union-stamp-paper.webp');
+  background-image: url('../../assets/images/cooper-union-stamp-paper.webp');
   padding: 20px;
   position: relative;
   min-height: 112px;
