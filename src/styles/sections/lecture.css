@@ -57,6 +57,7 @@
     text-transform: uppercase;
   }
 
+  .lecture__inner picture,
   .lecture__inner img {
     order: 2;
   }

@@ -12,7 +12,13 @@
       <div class="header__inner">
         <a href="#" aria-label="Клуб четырех коней">
           <picture>
+            <source
+              srcset="/src/assets/images/logo-chess-mobile.webp"
+              type="image/webp"
+              media="(max-width: 768px)"
+            />
             <source srcset="/src/assets/images/logo-chess-mobile.png" media="(max-width: 768px)" />
+            <source srcset="/src/assets/images/logo-chess.webp" type="image/webp" />
             <img src="/src/assets/images/logo-chess.png" alt="Клуб четырех коней" />
           </picture>
         </a>
@@ -71,11 +77,14 @@
               <span class="lecture__title-accent">«Плодотворная дебютная идея»</span>
             </span>
           </h2>
-          <img
-            src="/src/assets/images/lecture.png"
-            alt="Шахматный турнир — игроки за досками"
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="/src/assets/images/lecture.webp" type="image/webp" />
+            <img
+              src="/src/assets/images/lecture.png"
+              alt="Шахматный турнир — игроки за досками"
+              loading="lazy"
+            />
+          </picture>
         </div>
       </section>
 
@@ -83,8 +92,18 @@
         <div class="tournament__inner">
           <picture>
             <source
+              srcset="/src/assets/images/chess-player-mobile.webp"
+              type="image/webp"
+              media="(max-width: 768px)"
+            />
+            <source
               srcset="/src/assets/images/chess-player-mobile.png"
               media="(max-width: 768px)"
+            />
+            <source
+              srcset="/src/assets/images/chess-player-desktop.webp"
+              type="image/webp"
+              media="(min-width: 769px)"
             />
             <source
               srcset="/src/assets/images/chess-player-desktop.png"
@@ -152,97 +171,100 @@
 
           <div class="stages__carousel">
             <div class="stages__viewport">
-            <div class="stages__track" id="stages-track">
+              <div class="stages__track" id="stages-track">
+                <!-- Слайд 1: самолёт + карточки 1 и 2 -->
+                <div class="stages__slide">
+                  <picture class="stages__plane-mobile">
+                    <source srcset="/src/assets/images/plane-mobile.webp" type="image/webp" />
+                    <img
+                      src="/src/assets/images/plane-mobile.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </picture>
+                  <div class="stages__slide-cards">
+                    <article class="stage-card">
+                      <span class="stage-card__number" aria-hidden="true">1</span>
+                      <p class="stage-card__text">
+                        Строительство железнодорожной магистрали Москва-Васюки
+                      </p>
+                    </article>
 
-              <!-- Слайд 1: самолёт + карточки 1 и 2 -->
-              <div class="stages__slide">
-                <img
-                  class="stages__plane-mobile"
-                  src="/src/assets/images/plane-mobile.png"
-                  alt=""
-                  aria-hidden="true"
-                />
-                <div class="stages__slide-cards">
-                  <article class="stage-card">
-                    <span class="stage-card__number" aria-hidden="true">1</span>
-                    <p class="stage-card__text">
-                      Строительство железнодорожной магистрали Москва-Васюки
-                    </p>
-                  </article>
+                    <article class="stage-card">
+                      <span class="stage-card__number" aria-hidden="true">2</span>
+                      <p class="stage-card__text">
+                        Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
+                      </p>
+                    </article>
+                  </div>
+                </div>
 
-                  <article class="stage-card">
-                    <span class="stage-card__number" aria-hidden="true">2</span>
+                <!-- Слайд 2: карточка 3 -->
+                <div class="stages__slide">
+                  <article class="stage-card stage-card--tall">
+                    <span class="stage-card__number" aria-hidden="true">3</span>
                     <p class="stage-card__text">
-                      Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
+                      Поднятие сельского хозяйства в радиусе<br />
+                      на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
                     </p>
                   </article>
                 </div>
-              </div>
 
-              <!-- Слайд 2: карточка 3 -->
-              <div class="stages__slide">
-                <article class="stage-card stage-card--tall">
-                  <span class="stage-card__number" aria-hidden="true">3</span>
-                  <p class="stage-card__text">
-                    Поднятие сельского хозяйства в радиусе<br />
-                    на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
-                  </p>
-                </article>
-              </div>
+                <!-- Слайд 3: карточки 4 и 5 -->
+                <div class="stages__slide">
+                  <div class="stages__slide-cards">
+                    <article class="stage-card">
+                      <span class="stage-card__number" aria-hidden="true">4</span>
+                      <p class="stage-card__text">
+                        Строительство дворца<br />
+                        для турнира
+                      </p>
+                    </article>
 
-              <!-- Слайд 3: карточки 4 и 5 -->
-              <div class="stages__slide">
-                <div class="stages__slide-cards">
-                  <article class="stage-card">
-                    <span class="stage-card__number" aria-hidden="true">4</span>
+                    <article class="stage-card">
+                      <span class="stage-card__number" aria-hidden="true">5</span>
+                      <p class="stage-card__text">
+                        Размещение гаражей<br />
+                        для гостевого<br />
+                        автотранспорта
+                      </p>
+                    </article>
+                  </div>
+                </div>
+
+                <!-- Слайд 4: карточка 6 -->
+                <div class="stages__slide">
+                  <article class="stage-card stage-card--wide-tall">
+                    <span class="stage-card__number" aria-hidden="true">6</span>
                     <p class="stage-card__text">
-                      Строительство дворца<br />
-                      для турнира
-                    </p>
-                  </article>
-
-                  <article class="stage-card">
-                    <span class="stage-card__number" aria-hidden="true">5</span>
-                    <p class="stage-card__text">
-                      Размещение гаражей<br />
-                      для гостевого<br />
-                      автотранспорта
+                      Постройка сверхмощной радиостанции для передачи всему миру сенсационных
+                      результатов
                     </p>
                   </article>
                 </div>
-              </div>
 
-              <!-- Слайд 4: карточка 6 -->
-              <div class="stages__slide">
-                <article class="stage-card stage-card--wide-tall">
-                  <span class="stage-card__number" aria-hidden="true">6</span>
-                  <p class="stage-card__text">
-                    Постройка сверхмощной радиостанции для передачи всему миру сенсационных
-                    результатов
-                  </p>
-                </article>
+                <!-- Слайд 5: карточка 7 -->
+                <div class="stages__slide">
+                  <article class="stage-card stage-card--wide-tall stage-card--airplane">
+                    <span class="stage-card__number" aria-hidden="true">7</span>
+                    <p class="stage-card__text">
+                      Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых
+                      самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
+                    </p>
+                    <picture>
+                      <source srcset="/src/assets/images/plane.webp" type="image/webp" />
+                      <img
+                        src="/src/assets/images/plane.png"
+                        alt=""
+                        class="stage-card__plane"
+                        aria-hidden="true"
+                      />
+                    </picture>
+                  </article>
+                </div>
               </div>
-
-              <!-- Слайд 5: карточка 7 -->
-              <div class="stages__slide">
-                <article class="stage-card stage-card--wide-tall stage-card--airplane">
-                  <span class="stage-card__number" aria-hidden="true">7</span>
-                  <p class="stage-card__text">
-                    Создание аэропорта «Большие Васюки» с регулярным отправлением
-                    почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
-                  </p>
-                  <img
-                    src="/src/assets/images/plane.png"
-                    alt=""
-                    class="stage-card__plane"
-                    aria-hidden="true"
-                  />
-                </article>
-              </div>
-
             </div>
-
-            </div><!-- /stages__viewport -->
+            <!-- /stages__viewport -->
 
             <!-- Мобильные контролы карусели -->
             <div class="stages__controls" id="stages-controls">
@@ -256,7 +278,11 @@
               </button>
 
               <div class="stages__dots" id="stages-dots">
-                <button class="stages__dot stages__dot--active" type="button" aria-label="Этап 1"></button>
+                <button
+                  class="stages__dot stages__dot--active"
+                  type="button"
+                  aria-label="Этап 1"
+                ></button>
                 <button class="stages__dot" type="button" aria-label="Этап 2"></button>
                 <button class="stages__dot" type="button" aria-label="Этап 3"></button>
                 <button class="stages__dot" type="button" aria-label="Этап 4"></button>
@@ -287,7 +313,7 @@
               <article class="participant-card">
                 <div class="participant-card__photo">
                   <img
-                    src="/src/assets/images/participant.png"
+                    src="/src/assets/images/participant.webp"
                     alt="Хозе-Рауль Капабланка"
                     loading="lazy"
                   />
@@ -300,7 +326,7 @@
               <article class="participant-card">
                 <div class="participant-card__photo">
                   <img
-                    src="/src/assets/images/participant.png"
+                    src="/src/assets/images/participant.webp"
                     alt="Эммануил Ласкер"
                     loading="lazy"
                   />
@@ -313,7 +339,7 @@
               <article class="participant-card">
                 <div class="participant-card__photo">
                   <img
-                    src="/src/assets/images/participant.png"
+                    src="/src/assets/images/participant.webp"
                     alt="Александр Алехин"
                     loading="lazy"
                   />
@@ -326,7 +352,7 @@
               <article class="participant-card">
                 <div class="participant-card__photo">
                   <img
-                    src="/src/assets/images/participant.png"
+                    src="/src/assets/images/participant.webp"
                     alt="Арон Нимцович"
                     loading="lazy"
                   />
@@ -338,7 +364,7 @@
 
               <article class="participant-card">
                 <div class="participant-card__photo">
-                  <img src="/src/assets/images/participant.png" alt="Рихард Рети" loading="lazy" />
+                  <img src="/src/assets/images/participant.webp" alt="Рихард Рети" loading="lazy" />
                 </div>
                 <h3 class="participant-card__name">Рихард Рети</h3>
                 <p class="participant-card__role">Чемпион мира по шахматам</p>
@@ -347,7 +373,11 @@
 
               <article class="participant-card">
                 <div class="participant-card__photo">
-                  <img src="/src/assets/images/participant.png" alt="Остап Бендер" loading="lazy" />
+                  <img
+                    src="/src/assets/images/participant.webp"
+                    alt="Остап Бендер"
+                    loading="lazy"
+                  />
                 </div>
                 <h3 class="participant-card__name">Остап Бендер</h3>
                 <p class="participant-card__role">Гроссмейстер</p>
