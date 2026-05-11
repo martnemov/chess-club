@@ -1,8 +1,9 @@
 {
-  "name": "four-horses-club",
+  "name": "chess-club",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://martnemov.github.io/chess-club",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,11 +11,14 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.3.0",
+    "gh-pages": "^6.3.0",
     "globals": "^17.6.0",
     "prettier": "^3.8.3",
     "vite": "^8.0.10"
