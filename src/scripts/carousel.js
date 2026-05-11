@@ -37,12 +37,6 @@ export function initParticipantsCarousel() {
     return parseFloat(getComputedStyle(track).gap) || 0;
   }
 
-  function setOffset(index, animated) {
-    const offset = index * (getCardWidth() + getGap());
-    track.style.transition = animated ? 'transform 0.4s ease' : 'none';
-    track.style.transform = `translateX(-${offset}px)`;
-  }
-
   function updateCounter() {
     currentEl.textContent = String(currentIndex === 0 ? 1 : currentIndex);
   }
@@ -77,20 +71,36 @@ export function initParticipantsCarousel() {
     updateCounter();
   }
 
-  track.addEventListener('transitionend', (e) => {
-    if (e.target !== track || e.propertyName !== 'transform') return;
+  let transitionSafetyTimer = null;
+
+  function onTransitionDone() {
+    clearTimeout(transitionSafetyTimer);
     if (currentIndex === 0) {
-      // After backward loop animation: snap invisibly to real card 1
       currentIndex = 1;
       setOffset(1, false);
-      // rAF ensures transition:none is committed before re-enabling clicks
       requestAnimationFrame(() => {
         isTransitioning = false;
       });
     } else {
       isTransitioning = false;
     }
+  }
+
+  track.addEventListener('transitionend', (e) => {
+    if (e.target !== track || e.propertyName !== 'transform') return;
+    onTransitionDone();
   });
+
+  function setOffset(index, animated) {
+    clearTimeout(transitionSafetyTimer);
+    const offset = index * (getCardWidth() + getGap());
+    track.style.transition = animated ? 'transform 0.4s ease' : 'none';
+    track.style.transform = `translateX(-${offset}px)`;
+    if (animated) {
+      // Fallback: unlock isTransitioning if transitionend never fires (iOS quirk)
+      transitionSafetyTimer = setTimeout(onTransitionDone, 600);
+    }
+  }
 
   function stopAuto() {
     if (autoTimer) {
@@ -119,9 +129,22 @@ export function initParticipantsCarousel() {
     startAuto();
   });
 
+  // Pause autoplay on hover (desktop only — iOS mouseenter fires on tap and never fires mouseleave)
   const viewport = track.parentElement;
-  viewport.addEventListener('mouseenter', stopAuto);
-  viewport.addEventListener('mouseleave', startAuto);
+  const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+  viewport.addEventListener('mouseenter', () => { if (!isTouchDevice()) stopAuto(); });
+  viewport.addEventListener('mouseleave', () => { if (!isTouchDevice()) startAuto(); });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  viewport.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) { nextSlide(); } else { prevSlide(); }
+      startAuto();
+    }
+  }, { passive: true });
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopAuto();

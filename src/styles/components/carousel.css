@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: background var(--transition-base);
 }
 
